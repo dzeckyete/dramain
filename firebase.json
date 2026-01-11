@@ -1,0 +1,96 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|png|jpg|jpeg|webp|svg|ttf|woff2)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "**/*.m3u8",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/radreel/**",
+        "destination": "/radreel/index.html"
+      },
+      {
+        "source": "/flickreels/**",
+        "destination": "/flickreels/index.html"
+      },
+      {
+        "source": "/dotdrama/**",
+        "destination": "/dotdrama/index.html"
+      },
+      {
+        "source": "/netshort/**",
+        "destination": "/netshort/index.html"
+      },
+      {
+        "source": "/shortmax/**",
+        "destination": "/shortmax/index.html"
+      },
+      {
+        "source": "/starshort/**",
+        "destination": "/starshort/index.html"
+      },
+      {
+        "source": "/stardusttv/**",
+        "destination": "/stardusttv/index.html"
+      },
+      {
+        "source": "/dramadash/**",
+        "destination": "/dramadash/index.html"
+      },
+      {
+        "source": "/dramawave/**",
+        "destination": "/dramawave/index.html"
+      },
+      {
+        "source": "/dramabox/**",
+        "destination": "/dramabox/index.html"
+      },
+      {
+        "source": "/viglo/**",
+        "destination": "/viglo/index.html"
+      },
+      {
+        "source": "/micro/**",
+        "destination": "/micro/index.html"
+      },
+      {
+        "source": "/melolo/**",
+        "destination": "/melolo/index.html"
+      },
+      {
+        "source": "/meloshort/**",
+        "destination": "/meloshort/index.html"
+      },
+      {
+        "source": "/reelife/**",
+        "destination": "/reelife/index.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

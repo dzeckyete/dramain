@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DramaIn-Aja - Pilih Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-primary text-white min-h-screen">
+  <div class="flex flex-col items-center justify-center min-h-screen px-4">
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 text-accent">DramaIn-Aja</h1>
+      <p class="text-lg text-gray-400">Streaming Drama China dengan 15 Platform Pilihan</p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-7xl">
+      <!-- Platform cards will be inserted here -->
+    </div>
+
+    <div class="mt-16 text-center text-sm text-gray-500">
+      <p>Tanpa login • Gratis • Subtitle Indonesia</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import './index.css';
+
+    const PLATFORMS = [
+      { id: 'radreel', name: 'RadReel', color: 'from-red-600 to-red-700' },
+      { id: 'flickreels', name: 'FlickReels', color: 'from-blue-600 to-blue-700' },
+      { id: 'dotdrama', name: 'DotDrama', color: 'from-purple-600 to-purple-700' },
+      { id: 'netshort', name: 'NetShort', color: 'from-green-600 to-green-700' },
+      { id: 'shortmax', name: 'ShortMax', color: 'from-yellow-600 to-yellow-700' },
+      { id: 'starshort', name: 'StarShort', color: 'from-pink-600 to-pink-700' },
+      { id: 'stardusttv', name: 'StardustTV', color: 'from-indigo-600 to-indigo-700' },
+      { id: 'dramadash', name: 'DramaDash', color: 'from-teal-600 to-teal-700' },
+      { id: 'dramawave', name: 'DramaWave', color: 'from-cyan-600 to-cyan-700' },
+      { id: 'dramabox', name: 'DramaBox', color: 'from-orange-600 to-orange-700' },
+      { id: 'viglo', name: 'Viglo', color: 'from-lime-600 to-lime-700' },
+      { id: 'micro', name: 'Micro', color: 'from-gray-600 to-gray-700' },
+      { id: 'melolo', name: 'Melolo', color: 'from-rose-600 to-rose-700' },
+      { id: 'meloshort', name: 'MeloShort', color: 'from-violet-600 to-violet-700' },
+      { id: 'reelife', name: 'Reelife', color: 'from-emerald-600 to-emerald-700' }
+    ];
+
+    const container = document.querySelector('.grid');
+
+    PLATFORMS.forEach(platform => {
+      const card = document.createElement('div');
+      card.className = `card cursor-pointer group relative h-48 md:h-56 lg:h-64 bg-gradient-to-b ${platform.color} rounded-lg overflow-hidden transition-all duration-300 hover:scale-105`;
+      card.innerHTML = `
+        <div class="absolute inset-0 flex items-end">
+          <div class="w-full bg-gradient-to-t from-black to-transparent p-6 text-center">
+            <h2 class="text-xl font-bold text-white">${platform.name}</h2>
+          </div>
+        </div>
+      `;
+      
+      card.addEventListener('click', () => {
+        localStorage.setItem('dramain_platform', platform.id);
+        window.location.href = `/${platform.id}/`;
+      });
+      
+      container.appendChild(card);
+    });
+  </script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .bg-primary { background-color: #0f0f0f; }
+    .text-white { color: #ffffff; }
+    .text-accent { color: #ff6b35; }
+  </style>
+</body>
+</html>
